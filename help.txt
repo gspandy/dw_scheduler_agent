@@ -1,0 +1,8 @@
+thrift 根据配置生成执行方法和对象
+C:\Documents and Settings\rolandwang>thrift --gen java:beans,hashcode E:\study\thrift\test\schedule.thrift
+
+#在 zookeeper 客户端创建如下节点
+create /dw_scheduler "DW_scheduler"
+create /dw_scheduler/scheduler_servers "部署调度Agent的服务器"
+create /dw_scheduler/locks "调度系统分布式启动锁"
+create /dw_scheduler/testlocks "调度系统Test分布式启动锁"
