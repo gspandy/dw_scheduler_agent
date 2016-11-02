@@ -1,9 +1,9 @@
 #!/bin/bash
 # 删除原来的进程
-ps -aux | grep 'dw_scheduler_agent' | awk '{print $2}' | while read pid;
+ps -aux | grep 'dw_scheduler_agent.jar' | awk '{print $2}' | while read pid;
   do
-    echo "old pid: ${pid}"
-    kill -9 $pid;
+      echo "old pid: ${pid}"
+      kill  $pid;
   done
 
 loDate=`date +%Y-%m-%d`;
