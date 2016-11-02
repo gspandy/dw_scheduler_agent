@@ -1,3 +1,6 @@
 .settings/
 bin/
 test/
+resources
+scripts/*.jar
+.DS_Store
