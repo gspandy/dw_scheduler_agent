@@ -51,7 +51,7 @@ public class JobExecutor implements Runnable {
     @SuppressWarnings("unused")
     public void run() {
         DWJob job = jobRef.get();
-        System.out.println("JobExecutor------:"+job.getJobName());
+        // System.out.println("JobExecutor------:"+job.getJobName());
         try {
             if (job == null) {
                 LOG.warn("executor run with null job ref");

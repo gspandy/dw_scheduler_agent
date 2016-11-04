@@ -13,7 +13,7 @@ public class SchedulerConfig {
 
     public static final String CONF_DIR_KEY = "scheduler.config";
 
-    public static final String DRONE_HOME_KEY = "scheduler.home";
+    //public static final String DRONE_HOME_KEY = "scheduler.home";
 
     public static final String JDBC_DRIVER_NAME = "scheduler.jdbc.driver";
 
@@ -41,8 +41,8 @@ public class SchedulerConfig {
 
     public static final String SCHEDULER_SERVERS_PATH = "scheduler.servers.path";
 
-    public static final String DW_SCRIPT_PATH = "dw.script.path";
-    
+    public static final String DW_SCHEDULER_AGENT_HOME = "dw.scheduler.agent.home";
+
     private final Map<String, Object> config;
 
     private static final String USER_HOME = System.getProperty("user.home");
@@ -52,14 +52,28 @@ public class SchedulerConfig {
         this.config = new HashMap<String, Object>(config);
     }
 
+    // 项目部署目录
+    public String getSchedulerAgentHome () {
+        String schedulerAgentHome = "";
+        // 读取运行时的配置
+        if (System.getProperty(getString(DW_SCHEDULER_AGENT_HOME)) != null) {
+            schedulerAgentHome = System.getProperty(getString(DW_SCHEDULER_AGENT_HOME));
+        // 读取环境变量配置
+        } else if(System.getenv(getString(DW_SCHEDULER_AGENT_HOME)) != null) {
+            schedulerAgentHome = System.getenv(getString(DW_SCHEDULER_AGENT_HOME));
+        }
+        return schedulerAgentHome;
+    }
 
+
+    // 脚本运行目录
     public String getDwScriptPath () {
-        return getString(DW_SCRIPT_PATH);
+        return this.getSchedulerAgentHome() + "/scripts";
     }
-    
-    public String getSchedulerHome () {
-        return getString(DRONE_HOME_KEY);
-    }
+
+    //public String getSchedulerHome () {
+        //return getString(DRONE_HOME_KEY);
+    //}
 
     public String getJdbcDriverName() {
         return getString(JDBC_DRIVER_NAME);

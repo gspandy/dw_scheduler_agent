@@ -30,7 +30,9 @@ public class ScriptJobRunner extends AbstractJobRunner {
     protected int doRun(DWJob job) {
         String command = job.getCommand();
         Runtime runtime = Runtime.getRuntime();
-        LOG.info("About to run " + command);
+        //LOG.info("About to run " + command);
+        LOG.info("About to run: ----------<  python " + SCRIPT_PATH + " "+ command + " >----------");
+
         if(command==null || command.trim().length()==0){
         	return 0;
         }
