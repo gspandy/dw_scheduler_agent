@@ -11,4 +11,4 @@ loDate=`date +%Y-%m-%d`;
 nohup java -DAPP_NAME=dw_scheduler_agent \
 -DDW_SCHEDULER_AGENT_HOME=$DW_SCHEDULER_AGENT_HOME \
 -Dfile.encoding=utf-8 \
--jar $DW_SCHEDULER_AGENT_HOME/scripts/dw_scheduler_agent.jar >> /data/log/dwlogs/schedule_log/scheduler_run_log/scheduler.out.$loDate 2>&1 &
+-jar $DW_SCHEDULER_AGENT_HOME/scripts/dw_scheduler_agent.jar >> /var/log/schedule_log/scheduler_run_log/scheduler.out.$loDate 2>&1 &
